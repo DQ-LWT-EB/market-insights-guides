@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Insights Guide: United States of America</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script>// Register datalabels only for specific charts (passed per-instance)</script>
+<style>
+:root{--dq-teal:#004157;--dq-mid-teal:#3C748D;--dq-light-teal:#6B9EB5;--dq-pale-teal:#A8C8D8;--dq-very-pale:#D6E8F0;--dq-grey:#3F3939;--bg-main:#F3F0EC;--bg-card:#FFFFFF;--bg-section:#EFEAE5;--divider:#D8D2CA;--text-primary:#2B2B2B;--text-secondary:#5F5F5F;--text-muted:#8A8A8A;--font:'Inter','Aptos','Segoe UI',sans-serif;--card-radius:12px;--sg:72px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--bg-main);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1280px;margin:0 auto;padding:0 40px}
+section{padding:var(--sg) 0}
+section:nth-child(even){background:var(--bg-section)}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.section-title{font-size:clamp(22px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;color:var(--dq-teal);text-transform:uppercase;line-height:1.05;margin-bottom:8px}
+.section-subtitle{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--dq-teal);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--dq-teal);display:inline-block}
+.narrative{font-size:14px;color:var(--text-secondary);max-width:760px;line-height:1.75;margin-bottom:26px}
+.card{background:var(--bg-card);border-radius:var(--card-radius);padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04)}
+.kpi-card{background:var(--bg-card);border-radius:var(--card-radius);padding:24px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.05);border-top:3px solid var(--dq-teal)}
+.kpi-value{font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-.03em;color:var(--dq-teal);line-height:1;margin-bottom:5px}
+.kpi-label{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:11px}
+.kpi-changes{display:flex;gap:8px;flex-wrap:wrap}
+.kpi-change{font-size:11px;font-weight:600;padding:3px 7px;border-radius:4px}
+.kpi-change.up{background:#E3F2FD;color:#1565C0}
+.kpi-change.down{background:#FFF3E0;color:#E65100}
+.change-label{font-size:10px;font-weight:400;opacity:.8}
+.chart-wrap{background:var(--bg-card);border-radius:var(--card-radius);padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04)}
+.chart-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
+.chart-subtitle{font-size:12px;color:var(--text-muted);margin-bottom:16px}
+.toggle-group{display:inline-flex;background:var(--bg-section);border-radius:6px;padding:3px;margin-bottom:16px;gap:2px}
+.toggle-btn{padding:5px 13px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:none;background:transparent;color:var(--text-muted);border-radius:4px;cursor:pointer;transition:all .15s}
+.toggle-btn.active{background:var(--dq-teal);color:#fff;box-shadow:0 1px 3px rgba(0,65,87,.3)}
+.donut-legend{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.legend-row{display:flex;align-items:center;gap:8px}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.legend-label{flex:1;color:var(--text-secondary);font-size:12px}
+.legend-pct{font-weight:700;color:var(--text-primary);font-size:12px}
+/* NAV */
+#site-nav{position:sticky;top:0;z-index:1000;background:var(--bg-card);border-bottom:1px solid var(--divider);box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.nav-outer{max-width:1280px;margin:0 auto;padding:0 40px}
+.nav-primary{display:flex;align-items:flex-start;gap:7px;padding:9px 0 9px;overflow-x:auto;scrollbar-width:none}
+.nav-primary::-webkit-scrollbar{display:none}
+.nav-brand{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-right:10px;flex-shrink:0}
+.nav-pill{display:inline-flex;align-items:center;justify-content:center;padding:6px 15px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.04em;text-decoration:none;background:var(--bg-section);color:var(--text-secondary);border:1.5px solid transparent;white-space:nowrap;flex-shrink:0;transition:all .18s;cursor:pointer}
+.nav-pill:hover{background:var(--dq-very-pale);color:var(--dq-teal);border-color:var(--dq-pale-teal)}
+.nav-pill.active{background:var(--dq-teal);color:#fff;border-color:var(--dq-teal)}
+
+
+
+
+
+
+
+/* HERO */
+#hero{background:var(--dq-teal);min-height:320px;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding:0}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 75% 40%,rgba(107,158,181,.22) 0%,transparent 55%),radial-gradient(ellipse at 15% 80%,rgba(168,200,216,.1) 0%,transparent 50%)}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;width:100%;max-width:1280px;margin:0 auto;padding:48px 40px 40px;gap:40px}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dq-light-teal);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--dq-light-teal)}
+.hero-title{font-size:clamp(32px,5vw,58px);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:14px}
+.hero-sub{font-size:13px;color:rgba(255,255,255,.6);max-width:400px;line-height:1.6}
+.hero-logos{display:flex;gap:12px;align-items:center;margin-top:24px}
+.logo-text{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.logo-sep{width:1px;height:16px;background:rgba(255,255,255,.2)}
+.hero-aside{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0;align-self:flex-start}
+.hero-flag{width:120px;border-radius:6px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.hero-flag svg{display:block;width:100%;height:auto}
+
+/* INTRO */
+#intro{background:var(--dq-teal);padding:32px 0}
+.intro-grid{display:grid;grid-template-columns:auto 1fr 1fr;align-items:stretch;gap:0}
+.intro-accent{width:3px;background:var(--dq-light-teal);border-radius:2px;margin-right:28px}
+.intro-lead{font-size:clamp(14px,1.8vw,17px);font-weight:700;color:#fff;line-height:1.4;padding-right:36px}
+.intro-body-col{border-left:1px solid rgba(255,255,255,.12);padding-left:28px}
+.intro-body-col p{font-size:13px;color:rgba(255,255,255,.62);line-height:1.7}
+.intro-body-col p+p{margin-top:9px}
+/* ARRIVALS */
+.arrivals-kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+.arrivals-charts-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+.age-bars{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.age-row{display:flex;align-items:center;gap:8px}
+.age-label{font-size:11px;color:var(--text-secondary);width:56px;flex-shrink:0;text-align:right}
+.age-bar-wrap{flex:1;background:var(--bg-section);border-radius:3px;height:19px;overflow:hidden}
+.age-bar-fill{height:100%;background:var(--dq-mid-teal);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:5px}
+.age-bar-fill span{font-size:10px;font-weight:700;color:#fff;white-space:nowrap}
+.seasonality-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:20px}
+.season-card{background:var(--bg-card);border-radius:var(--card-radius);padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.season-icon-wrap{width:38px;height:38px;border-radius:50%;background:var(--dq-very-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.season-icon-wrap svg{width:19px;height:19px}
+.season-name{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px}
+.season-pct{font-size:24px;font-weight:800;color:var(--dq-teal);letter-spacing:-.02em;line-height:1;margin-bottom:2px}
+.season-period{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+.season-change{font-size:11px;font-weight:600;padding:3px 7px;border-radius:4px;display:inline-block}
+/* NZ TRIP */
+.spend-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:20px}
+.spend-kpi{background:var(--bg-card);border-radius:var(--card-radius);padding:17px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid var(--dq-pale-teal)}
+.spend-kpi-value{font-size:21px;font-weight:800;color:var(--dq-teal);letter-spacing:-.02em;line-height:1;margin-bottom:5px}
+.spend-kpi-label{font-size:11px;color:var(--text-muted);font-weight:500;line-height:1.35}
+.trip-charts-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:22px}
+.los-card{background:var(--dq-mid-teal);border-radius:var(--card-radius);padding:18px 22px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1}.los-card.los-card-holiday{background:var(--dq-light-teal)}
+.los-value{font-size:50px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff;margin-bottom:2px}
+.los-unit{font-size:12px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em}
+.los-sub{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.07em;font-weight:600;text-align:center}
+
+
+
+
+.ql-popouts{display:grid;grid-template-columns:1fr 1fr;gap:13px;flex:1;min-width:260px}
+.ql-pop{background:var(--bg-card);border-radius:var(--card-radius);padding:18px;border-left:4px solid var(--dq-mid-teal);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ql-pop.holiday{border-left-color:var(--dq-light-teal)}
+.ql-pop-value{font-size:26px;font-weight:800;color:var(--dq-teal);letter-spacing:-.03em;line-height:1;margin-bottom:3px}
+.ql-pop-dest{font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}
+.ql-pop-type{font-size:11px;color:var(--text-muted);margin-top:1px}
+.motivator-list{display:flex;flex-direction:column;gap:13px}
+.motivator-item{display:flex;align-items:center;gap:13px}
+.motivator-icon{width:34px;height:34px;border-radius:50%;background:var(--dq-very-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.motivator-icon svg{width:17px;height:17px}
+.motivator-text{flex:1}
+.motivator-label{font-size:13px;color:var(--text-secondary);line-height:1.3;margin-bottom:4px}
+.motivator-bar-wrap{display:flex;align-items:center;gap:8px}
+.motivator-bar-bg{flex:1;background:var(--bg-section);border-radius:3px;height:15px;overflow:hidden}
+.motivator-bar-fill{height:100%;background:linear-gradient(90deg,var(--dq-teal),var(--dq-mid-teal));border-radius:3px}
+.motivator-pct{font-size:12px;font-weight:700;color:var(--dq-teal);width:36px;text-align:right;flex-shrink:0}
+/* QL EXPEND */
+.expend-hero{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+.expend-kpi{background:var(--dq-teal);border-radius:var(--card-radius);padding:26px;color:#fff}
+.expend-kpi.secondary{background:var(--dq-mid-teal)}
+.expend-kpi-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:7px}
+.expend-kpi-value{font-size:clamp(28px,3.8vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff;margin-bottom:7px}
+.expend-kpi-change{font-size:13px;font-weight:600;color:var(--dq-very-pale)}
+/* VIS EXP */
+.exp-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
+.exp-kpi-card{background:var(--bg-card);border-radius:var(--card-radius);padding:24px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.05);border-top:3px solid var(--dq-teal)}
+.exp-kpi-card.mid{border-top-color:var(--dq-mid-teal)}
+.exp-kpi-card.lite{border-top-color:var(--dq-light-teal)}
+.motivation-list{display:flex;flex-direction:column;gap:11px}
+.motivation-item{display:flex;align-items:center;gap:11px}
+.motivation-icon{width:32px;height:32px;border-radius:50%;background:var(--dq-very-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.motivation-icon svg{width:16px;height:16px}
+.motivation-text{flex:1}
+.motivation-label{font-size:13px;color:var(--text-secondary);line-height:1.3;margin-bottom:3px}
+.motivation-bar-wrap{display:flex;align-items:center;gap:7px}
+.motivation-bar-bg{flex:1;background:var(--bg-section);border-radius:3px;height:13px;overflow:hidden}
+.motivation-bar-fill{height:100%;background:linear-gradient(90deg,var(--dq-teal),var(--dq-mid-teal));border-radius:3px}
+.motivation-pct{font-size:12px;font-weight:700;color:var(--dq-teal);width:34px;text-align:right;flex-shrink:0}
+/* ACTIVITIES / LOCATIONS */
+.act-stat-banner{display:flex;gap:18px;margin-bottom:22px}
+.act-stat-card{background:var(--bg-card);border-radius:var(--card-radius);padding:20px 26px;display:flex;align-items:center;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.act-stat-num{font-size:48px;font-weight:800;color:var(--dq-teal);letter-spacing:-.04em;line-height:1}
+.act-stat-sub{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);line-height:1.5}
+/* SUSTAINABLE TRAVEL */
+.sust-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.attitude-list{display:flex;flex-direction:column;gap:13px}
+.attitude-item{}
+.attitude-label{font-size:12px;color:var(--text-secondary);margin-bottom:5px;line-height:1.35}
+.attitude-row-wrap{display:flex;align-items:center;gap:9px}
+.attitude-bar-bg{flex:1;background:var(--bg-section);border-radius:3px;height:17px;overflow:hidden}
+.attitude-bar-fill{height:100%;background:linear-gradient(90deg,var(--dq-teal),var(--dq-mid-teal));border-radius:3px}
+.attitude-total-pct{font-size:13px;font-weight:700;color:var(--dq-teal);width:36px;text-align:right;flex-shrink:0}
+.behav-bars{display:flex;flex-direction:column;gap:11px}
+.behav-row{}
+.behav-label{font-size:12px;color:var(--text-secondary);margin-bottom:4px;line-height:1.35}
+.behav-bar-wrap{display:flex;align-items:center;gap:8px}
+.behav-bar-bg{flex:1;background:var(--bg-section);border-radius:3px;height:17px;overflow:hidden}
+.behav-bar-fill{height:100%;background:linear-gradient(90deg,var(--dq-mid-teal),var(--dq-light-teal));border-radius:3px}
+.behav-pct{font-size:12px;font-weight:700;color:var(--text-primary);width:32px;text-align:right;flex-shrink:0}
+/* MARKET CONTEXT */
+.placeholder-banner{background:var(--dq-very-pale);border:1px solid var(--dq-pale-teal);border-radius:8px;padding:10px 13px;font-size:12px;color:var(--dq-mid-teal);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:8px}
+.context-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.context-card{background:var(--bg-card);border-radius:var(--card-radius);padding:26px 22px;box-shadow:0 1px 3px rgba(0,0,0,.06);min-height:460px;border-top:3px solid var(--dq-pale-teal)}
+.context-card.placeholder{opacity:.55}
+.context-card-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dq-teal);margin-bottom:13px}
+.context-card-text{font-size:13px;color:var(--text-secondary);line-height:1.75}
+/* ABOUT */
+#about{background:var(--dq-teal)}
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:52px}
+.about-text p{font-size:14px;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:11px}
+.market-tier{margin-bottom:20px}
+.tier-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dq-light-teal);margin-bottom:7px}
+.tier-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.tier-list li{font-size:13px;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:7px}
+.tier-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--dq-light-teal);flex-shrink:0}
+.tier-list.secondary li::before{background:rgba(255,255,255,.4)}
+.tier-list.additional li::before{background:rgba(255,255,255,.2)}
+/* SOURCES */
+.sources-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.source-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dq-teal);margin-bottom:11px;padding-bottom:6px;border-bottom:2px solid var(--dq-teal)}
+.source-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.source-list li{font-size:12px;color:var(--text-secondary);line-height:1.6;padding-left:11px;position:relative}
+.source-list li::before{content:'';position:absolute;left:0;top:7px;width:3px;height:3px;border-radius:50%;background:var(--dq-mid-teal)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+footer{background:#1a2a30;padding:26px 40px;text-align:center}
+footer p{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.06em}
+@media(max-width:1024px){.arrivals-charts-row{grid-template-columns:1fr 1fr}.arrivals-charts-row .chart-wrap:first-child{grid-column:1/-1}.trip-charts-row{grid-template-columns:1fr 1fr}.spend-kpis{grid-template-columns:1fr 1fr}.context-grid{grid-template-columns:1fr 1fr}.sust-grid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr;gap:26px}.sources-grid{grid-template-columns:1fr}.expend-hero{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){:root{--sg:46px}.container{padding:0 18px}.nav-outer{padding:0 14px}.hero-inner{padding:34px 18px 30px;flex-direction:column;align-items:flex-start}.hero-aside{flex-direction:row;align-items:center}.intro-grid{grid-template-columns:1fr;gap:14px}.intro-accent{display:none}.intro-body-col{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.12);padding-top:12px}.arrivals-charts-row{grid-template-columns:1fr}.seasonality-grid{grid-template-columns:1fr 1fr}.spend-kpis{grid-template-columns:1fr 1fr}.trip-charts-row{grid-template-columns:1fr}.exp-kpis{grid-template-columns:1fr}.sust-grid{grid-template-columns:1fr}.context-grid{grid-template-columns:1fr}.expend-hero{grid-template-columns:1fr}.ql-popouts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<!-- MARKET DATA -->
+<script>
+const MARKET_DATA={meta:{market:"United States of America",marketShort:"USA",reportDate:"May 2026"},sections:{nzArrivals:{enabled:true},nzTrip:{enabled:true},qlExpenditure:{enabled:true},visitorExperience:{enabled:true},activities:{enabled:true},locationsVisited:{enabled:true},sustainableTravel:{enabled:true},marketContext:{enabled:true}},intro:{headline:"Understanding the American visitor",body:"The Market Insights Guides support members with up-to-date insights into visitors from DQ and LWT's key focus markets, covering visitor behaviours, current trends, and what travellers seek in the Queenstown Lakes district and wider New Zealand.",body2:"Guides draw on reputable district and national data sources including the Queenstown Lakes Visitor Experience Survey, New Zealand International Visitor Survey, and International Visitor Arrivals data. Slight variations between guides exist where specific data is unavailable or sample sizes are limited."},nzArrivals:{narrative:"In 2025, New Zealand welcomed 384,875 international visitor arrivals from the United States, 11% of total international arrivals and making the USA New Zealand's third-largest international visitor market. Of these, 263,917 were holiday visitors, representing 69% of total USA arrivals.",kpis:{totalArrivals:{value:"385k",label:"Total Arrivals",changePY:"+4%",change2019:"+5%"},holidayArrivals:{value:"264k",label:"Holiday Arrivals",changePY:"+10%",change2019:"+9%"}},monthlyTotal:{labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"2019":[40083,51864,48613,23900,18154,19996,17213,14579,15593,22078,39251,56634],"2024":[51160,55517,51429,19494,15155,17134,14754,11168,13598,22272,37074,60880],"2025":[52455,63729,49285,22769,16447,16865,13513,11492,14116,23036,40826,60342]},monthlyHoliday:{labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"2019":[28690,37170,34776,15406,9693,10499,8625,7590,8644,14148,27859,38519],"2024":[36654,38747,34908,11687,8007,9198,6962,5308,7789,14323,25847,40321],"2025":[38379,48302,36851,14449,9667,9170,6994,5836,8537,15449,29143,41140]},purposeOfVisit:[{label:"Holiday",pct:69,color:"#004157"},{label:"VFR",pct:19,color:"#3C748D"},{label:"Other",pct:9,color:"#6B9EB5"},{label:"Business",pct:4,color:"#A8C8D8"}],ageBreakdown:[{label:"65+",pct:25.5},{label:"55\u201364",pct:17.1},{label:"25\u201334",pct:16.3},{label:"35\u201344",pct:13.2},{label:"45\u201354",pct:12.2},{label:"18\u201324",pct:8.1},{label:"Under 18",pct:7.6}],seasonality:[{season:"Summer",period:"25\u201326",total:"45.0%",changePct:"-3%",up:false},{season:"Autumn",period:"25",total:"23.3%",changePct:"+2%",up:true},{season:"Winter",period:"25",total:"11.1%",changePct:"-2%",up:false},{season:"Spring",period:"25",total:"20.6%",changePct:"+7%",up:true}]},nzTrip:{narrative:"American visitors spent $1.9 billion in New Zealand, with an average spend per trip of $5,713 ($6,434 for holiday visitors). A third of visitors stayed across four or more regions.",spend:{total:{value:"$1.9bn",label:"Total Market Spend"},avgTrip:{value:"$5,713",label:"Avg. spend per trip (all)"},avgDay:{value:"$365",label:"Avg. spend per day"},avgHolidayTrip:{value:"$6,434",label:"Avg. spend per trip (holiday)"},spendSplit:[{label:"Holiday",value:1429,color:"#004157"},{label:"Other",value:453,color:"#6B9EB5"}]},los:{total:{value:"14",label:"days",subLabel:"Total visitors avg. length of stay"},holiday:{value:"12",label:"days",subLabel:"Holiday visitors avg. length of stay"}},regionsVisited:[{label:"1 region",pct:35,color:"#004157"},{label:"2 regions",pct:19,color:"#3C748D"},{label:"3 regions",pct:13,color:"#6B9EB5"},{label:"4 regions",pct:10,color:"#8BAFC4"},{label:"5 regions",pct:9,color:"#A8C8D8"},{label:"6 regions",pct:6,color:"#C0D9E6"},{label:"7+ regions",pct:8,color:"#D6E8F0"}],visitedFourPlus:"33%",qlVisitation:{queenstownTotal:"35.7%",queenstownHol:"47.6%",wanakaTotal:"9.4%",wanakaHol:"12.4%"},motivators:[{label:"Its landscapes and scenery",pct:73.1},{label:"I've always wanted to visit",pct:37.6},{label:"Somewhere new - I had never been there before",pct:34.7},{label:"The variety of outdoor and adventure activities",pct:20.8},{label:"The Hobbit and Lord of the Rings movies",pct:17.6}]},qlExpenditure:{narrative:"In 2025, total visitor expenditure from the American market in the Queenstown Lakes reached $721.8M - 32% of total international expenditure - making the USA the region's largest international visitor expenditure market.",kpis:{total:{value:"$721.8M",label:"Total Expenditure 2025",changePY:"+23% vs 2024"},share:{value:"32%",label:"Share of International Spend",changePY:"Largest international market"}},monthly:{labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"2023":[42.2,49.3,49.8,29.4,17.1,22.0,36.3,37.1,34.5,31.8,58.1,76.6],"2024":[75.2,71.8,70.6,38.5,24.7,24.2,37.7,35.9,36.7,33.2,53.8,85.9],"2025":[81.1,80.4,73.2,51.5,28.7,35.1,45.4,45.9,42.0,43.5,76.6,113.4]}},visitorExperience:{sourceNote:"Queenstown Lakes Visitor Experience Survey, 1 Jan 2024 \u2013 31 Dec 2025. n=60.",kpis:{nps:{value:"87",label:"Net Promoter Score"},satisfaction:{value:"9.2",label:"Overall Satisfaction (out of 10)"},returnIntent:{value:"27%",label:"Intend to return within 2 years"}},motivations:[{label:"Enjoy stunning natural scenery",pct:78},{label:"Explore a new place and experience new things",pct:67},{label:"Experience tourism activities and attractions",pct:53},{label:"Enjoy the local food and drink",pct:43},{label:"Experience challenge and excitement",pct:38},{label:"Recharge and unwind",pct:37},{label:"Visit a well-known destination",pct:37},{label:"Learn about local history and culture",pct:25}]},activities:{avgActivities:5.8,list:[{label:"Restaurants and caf\u00e9s",pct:88},{label:"Sightseeing",pct:82},{label:"Walking, hiking, climbing and tramping",pct:72},{label:"Shopping",pct:60},{label:"Lake cruising and river activities",pct:47},{label:"Art galleries, museums, historic buildings",pct:30},{label:"Bars and nightclubs",pct:30},{label:"Wineries or wine experiences",pct:30},{label:"Flying and air activities",pct:25},{label:"Cultural or heritage experiences",pct:22},{label:"Adrenaline activities",pct:18},{label:"Farm, animal or nature experience",pct:18},{label:"Land activities",pct:17},{label:"Cycling and biking",pct:12},{label:"Wellness experiences",pct:12},{label:"Community event or giving back",pct:7},{label:"Golf",pct:5},{label:"Ski, snow and ice activities",pct:3}]},locationsVisited:{avgLocations:3.6,list:[{label:"Queenstown town centre",pct:97},{label:"Wānaka town centre",pct:50},{label:"Arrowtown",pct:48},{label:"Glenorchy",pct:33},{label:"Frankton",pct:22},{label:"Gibbston Valley",pct:20},{label:"Cardrona Valley",pct:17},{label:"Lake Hāwea",pct:15},{label:"Other Queenstown urban area",pct:12},{label:"Arthur's Point",pct:10},{label:"Glendhu Bay and surrounds",pct:10},{label:"Kingston",pct:7},{label:"Makarora and surrounds",pct:7},{label:"Lake Hayes",pct:5},{label:"Kelvin Heights/Kelvin Peninsula",pct:3},{label:"Other Wānaka urban area",pct:2}]},sustainableTravel:{sourceNote:"Queenstown Lakes Visitor Experience Survey, 1 Jan 2024 \u2013 31 Dec 2025. n=60.",interactionWithLocals:[{label:"A lot",pct:12,color:"#004157"},{label:"A moderate amount",pct:45,color:"#3C748D"},{label:"Not very much",pct:41,color:"#6B9EB5"},{label:"None at all",pct:3,color:"#A8C8D8"}],behaviours:[{label:"Travelled outside peak seasons to limit overcrowding",pct:58},{label:"Limited environmental impact by reducing excess waste",pct:56},{label:"Got to know and connected with local people",pct:40},{label:"Intentionally supported sustainable businesses",pct:40},{label:"Looked for sustainable or regenerative tourism services",pct:27},{label:"Stayed longer and explored more of the local area",pct:24}],attitudes:[{label:"Respecting and preserving local cultural heritage",combined:92},{label:"Protecting and restoring the local environment",combined:87},{label:"Leaving places better than when you arrived",combined:93},{label:"Connecting with locals and understanding their ways",combined:76},{label:"Considering over-tourism and visitor impact",combined:70},{label:"Considering carbon emissions when travelling",combined:39}]},marketContext:{placeholderNote:"Market context content is being developed and will be added in a future update.",pillars:[{title:"Economic",text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis."},{title:"Society & Culture",text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum."},{title:"Environment",text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt cras dapibus vivamus elementum."}]},about:{body:"Destination Queenstown (DQ) and Lake Wānaka Tourism (LWT) are the Regional Tourism Organisations (RTOs) responsible for destination marketing, both domestically and internationally, and destination management, delivering selected initiatives from the Queenstown Lakes' destination management plan.",body2:"The RTOs' role is to market Queenstown and Wānaka as leading tourism destinations. This focuses on attracting high contributing visitors and supporting delivery of the destination management plan to ensure a resilient and future-focused industry, within a thriving community and environment.",body3:"The RTO strategy has evolved to support the goals of Travel to a Thriving Future, as well as continuing to support the visitor economy with values-aligned marketing, product development, and capability building in line with a regenerative tourism future.",focusMarkets:{priority:["New Zealand","Australia","China","United States of America"],secondary:["India","Southeast Asia (Malaysia, Singapore, Indonesia)","United Kingdom","Europe (Germany)"],additional:["Japan","South Korea"]}},sources:[{section:"New Zealand Travel Insights",items:["International Visitor Arrivals data accessed via Infoshare, Stats NZ on 13 May 2026. Period: January to December 2025.","International Visitor Survey data, year ended December 2025, accessed via Tourism New Zealand International Visitor Survey Dashboard on 20 May 2026. Sample: 637 total respondents, 432 holiday respondents."]},{section:"Queenstown Lakes Travel Insights",items:["Tourism Related Expenditure Insights based on MBIE Monthly Regional Tourism Estimates, January to December 2025.","Visitor Experience Insights and Sustainable Travel Attitudes and Behaviours Insights based on Queenstown Lakes Visitor Experience Survey, conducted by Angus & Associates. Period: 1 January 2024 \u2013 31 December 2025. Sample size: n=60."]}]};
+</script>
+
+<header id="hero">
+<div class="hero-bg"></div>
+<div class="hero-inner">
+<div>
+<div class="hero-eyebrow">Market Insights Guide</div>
+<h1 class="hero-title" id="hero-title"></h1>
+<p class="hero-sub">Key visitor behaviours, trends, and what travellers are seeking in the Queenstown Lakes district and wider New Zealand.</p>
+<div class="hero-logos"><span class="logo-text">Destination Queenstown</span><span class="logo-sep"></span><span class="logo-text">Lake Wānaka Tourism</span></div>
+</div>
+<div class="hero-aside">
+<div class="hero-flag" id="hero-flag"></div>
+
+</div>
+</div>
+</header>
+
+<section id="intro">
+<div class="container">
+<div class="intro-grid">
+<div class="intro-accent"></div>
+<div><h2 class="intro-lead" id="intro-headline"></h2></div>
+<div class="intro-body-col" id="intro-body-col"></div>
+</div>
+</div>
+</section>
+
+<!-- NAV -->
+<nav id="site-nav">
+<div class="nav-outer">
+<div class="nav-primary">
+<span class="nav-brand">Market Insights</span>
+<a class="nav-pill" href="#nz-arrivals">NZ Arrivals</a>
+<a class="nav-pill" href="#nz-trip">NZ Trip Insights</a>
+<a class="nav-pill" href="#ql-expenditure">Queenstown-Wānaka Expenditure</a>
+<a class="nav-pill" href="#visitor-experience">Queenstown/Wānaka Visitor Insights</a>
+<a class="nav-pill" href="#market-context">Market Context</a>
+</div>
+</div>
+</nav>
+
+<section id="nz-arrivals" class="reveal">
+<div class="container">
+<p class="section-label">New Zealand Travel Insights</p>
+<h2 class="section-title">International Visitor Arrivals</h2>
+<p class="narrative" id="arrivals-narrative"></p>
+<div class="arrivals-kpi-row" id="arrivals-kpi-row"></div>
+<div class="toggle-group">
+<button class="toggle-btn active" onclick="setArrivalsMode('total')">All Visitors</button>
+<button class="toggle-btn" onclick="setArrivalsMode('holiday')">Holiday Visitors</button>
+</div>
+<div class="arrivals-charts-row">
+<div class="chart-wrap"><div class="chart-title">Monthly Visitor Arrivals</div><div class="chart-subtitle">2019, 2024 and 2025</div><div style="position:relative;height:248px"><canvas id="chart-arrivals"></canvas></div></div>
+<div class="chart-wrap"><div class="chart-title">Purpose of Visit</div><div class="chart-subtitle">Total arrivals, 2025</div><div style="position:relative;height:220px"><canvas id="chart-purpose"></canvas></div></div>
+<div class="chart-wrap"><div class="chart-title">Age Breakdown</div><div class="chart-subtitle">Share of total arrivals</div><div class="age-bars" id="age-bars"></div></div>
+</div>
+<div style="margin-top:26px"><span class="section-subtitle">Seasonality</span><div class="seasonality-grid" id="seasonality-grid"></div></div>
+</div>
+</section>
+
+<section id="nz-trip" class="reveal">
+<div class="container">
+<p class="section-label">New Zealand Travel Insights</p>
+<h2 class="section-title">New Zealand Trip Insights</h2>
+<p class="narrative" id="trip-narrative"></p>
+<div class="spend-kpis" id="spend-kpis"></div>
+<div class="trip-charts-row">
+<div class="chart-wrap"><div class="chart-title">Spend ($M) by Visitor Type</div><div class="chart-subtitle">Total market spend, 2025</div><div style="position:relative;height:155px"><canvas id="chart-spend"></canvas></div></div>
+<div style="display:flex;flex-direction:column;gap:14px"><div class="los-card" id="los-card-total"></div><div class="los-card los-card-holiday" id="los-card-holiday"></div></div>
+<div class="chart-wrap"><div class="chart-title">Number of Regions Visited</div><div style="position:relative;height:220px"><canvas id="chart-regions"></canvas></div><div style="text-align:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--divider)"><span style="font-size:26px;font-weight:800;color:var(--dq-teal);letter-spacing:-.03em" id="four-plus-pct"></span><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);display:block;margin-top:2px">visited 4+ regions</span></div></div>
+</div>
+<div style="margin-top:26px"><span class="section-subtitle">Queenstown Lakes Regional Visitation</span>
+<div class="ql-popouts" id="ql-popouts" style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px"></div></div>
+<div style="margin-top:26px"><span class="section-subtitle">Top 5 Motivators for Visiting New Zealand</span><div class="card" style="margin-top:14px"><div class="motivator-list" id="motivator-list"></div></div></div>
+</div>
+</section>
+
+<section id="ql-expenditure" class="reveal">
+<div class="container">
+<p class="section-label">Queenstown Lakes Travel Insights</p>
+<h2 class="section-title">Tourism Related Expenditure</h2>
+<p class="narrative" id="expend-narrative"></p>
+<div class="expend-hero" id="expend-hero"></div>
+<div class="chart-wrap"><div class="chart-title">Expenditure ($M) by Month</div><div class="chart-subtitle">2023, 2024 and 2025 - USA market, Queenstown Lakes</div><div style="position:relative;height:255px"><canvas id="chart-expend"></canvas></div></div>
+</div>
+</section>
+
+<section id="visitor-experience" class="reveal">
+<div class="container">
+<p class="section-label">Queenstown Lakes Travel Insights</p>
+<h2 class="section-title">Visitor Experience Insights</h2>
+<div class="exp-kpis" id="exp-kpis"></div>
+<span class="section-subtitle">Top Motivations for Visiting the Queenstown Lakes District</span>
+<div class="card" style="margin-top:14px"><div class="motivation-list" id="motivation-list"></div></div>
+<p style="font-size:11px;color:var(--text-muted);margin-top:10px" id="exp-source"></p>
+</div>
+</section>
+
+<section id="activities" class="reveal">
+<div class="container">
+<p class="section-label">Queenstown Lakes Travel Insights</p>
+<h2 class="section-title">Activities Undertaken</h2>
+<div class="act-stat-banner"><div class="act-stat-card" id="act-avg-card"></div></div>
+<div class="chart-wrap"><div class="chart-title">Activities Undertaken</div><div class="chart-subtitle">% of USA visitors who participated</div><div style="position:relative;height:476px"><canvas id="chart-activities"></canvas></div></div>
+</div>
+</section>
+
+<section id="locations-visited" class="reveal">
+<div class="container">
+<p class="section-label">Queenstown Lakes Travel Insights</p>
+<h2 class="section-title">Locations Visited</h2>
+<div class="act-stat-banner"><div class="act-stat-card" id="loc-avg-card"></div></div>
+<div class="chart-wrap"><div class="chart-title">Locations Visited</div><div class="chart-subtitle">% of USA visitors who visited each location</div><div style="position:relative;height:476px"><canvas id="chart-locations"></canvas></div></div>
+</div>
+</section>
+
+<section id="sustainable-travel" class="reveal">
+<div class="container">
+<p class="section-label">Queenstown Lakes Travel Insights</p>
+<h2 class="section-title">Sustainable Travel Attitudes &amp; Behaviours</h2>
+<div class="sust-grid">
+<div class="chart-wrap"><div class="chart-title">Interaction with Locals</div><div class="chart-subtitle">Level of engagement during visit</div><div style="position:relative;height:210px"><canvas id="chart-locals"></canvas></div></div>
+<div class="card"><div class="chart-title" style="margin-bottom:13px">Sustainable Behaviours Taken</div><div class="chart-subtitle" style="margin-top:-7px;margin-bottom:13px">% who said yes</div><div class="behav-bars" id="behav-bars"></div></div>
+<div class="card"><div class="chart-title" style="margin-bottom:13px">Sustainable Travel Attitudes</div><div class="chart-subtitle" style="margin-top:-7px;margin-bottom:13px">% rating as very or extremely important</div><div class="attitude-list" id="attitude-list"></div></div>
+</div>
+<p style="font-size:11px;color:var(--text-muted);margin-top:12px" id="sust-source"></p>
+</div>
+</section>
+
+<section id="market-context" class="reveal">
+<div class="container">
+<p class="section-label">Market Context</p>
+<h2 class="section-title">Market Context Insights</h2>
+<div class="placeholder-banner"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#3C748D" stroke-width="1.5"/><path d="M8 5v4M8 11v.5" stroke="#3C748D" stroke-width="1.5" stroke-linecap="round"/></svg><span id="context-placeholder-note"></span></div>
+<div class="context-grid" id="context-grid"></div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<p class="section-label" style="color:rgba(255,255,255,.45)">About</p>
+<h2 class="section-title" style="color:#fff;margin-bottom:32px">About DQ &amp; LWT</h2>
+<div class="about-grid"><div class="about-text" id="about-text"></div><div id="focus-markets"></div></div>
+</div>
+</section>
+
+<section id="sources">
+<div class="container">
+<p class="section-label">Data &amp; Methodology</p>
+<h2 class="section-title" style="margin-bottom:26px">Sources</h2>
+<div class="sources-grid" id="sources-grid"></div>
+</div>
+</section>
+<footer><p id="footer-text"></p></footer>
+
+<script>
+const el=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString('en-NZ');
+Chart.defaults.font.family="'Inter','Aptos',sans-serif";
+Chart.defaults.color='#5F5F5F';
+
+// Scroll reveal
+const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:0.04});
+document.querySelectorAll('.reveal').forEach(e=>revObs.observe(e));
+
+// Nav active state
+(function(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const id=e.target.id;
+      const qlSet=['visitor-experience','activities','locations-visited','sustainable-travel'];
+      const navId=qlSet.includes(id)?'visitor-experience':id;
+      document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
+      const pill=document.querySelector(`.nav-pill[href="#${navId}"]`);
+      if(pill)pill.classList.add('active');
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  ['nz-arrivals','nz-trip','ql-expenditure','visitor-experience','activities','locations-visited','sustainable-travel','market-context'].forEach(id=>{const s=document.getElementById(id);if(s)obs.observe(s);});
+})();
+
+// Hero
+el('hero-title').textContent=MARKET_DATA.meta.market;
+
+el('footer-text').textContent=`\u00a9 ${new Date().getFullYear()} Destination Queenstown & Lake Wānaka Tourism. Market Insights Guide - ${MARKET_DATA.meta.market}.`;
+el('hero-flag').innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40"><rect width="60" height="40" fill="#B22234"/><rect y="3.08" width="60" height="3.08" fill="#fff"/><rect y="9.23" width="60" height="3.08" fill="#fff"/><rect y="15.38" width="60" height="3.08" fill="#fff"/><rect y="21.54" width="60" height="3.08" fill="#fff"/><rect y="27.69" width="60" height="3.08" fill="#fff"/><rect y="33.85" width="60" height="3.08" fill="#fff"/><rect width="24" height="21.54" fill="#3C3B6E"/>${[0,1,2,3,4,5].map(r=>{const c=r%2===0?9:8,x=r%2===0?2.5:3.75,y=2+r*3.2;return Array.from({length:c},(_,i)=>`<circle fill="#fff" cx="${(x+i*2.5).toFixed(1)}" cy="${y}" r="1.1"/>`).join('');}).join('')}</svg>`;
+
+// Intro
+el('intro-headline').textContent=MARKET_DATA.intro.headline;
+el('intro-body-col').innerHTML=`<p>${MARKET_DATA.intro.body}</p><p>${MARKET_DATA.intro.body2}</p>`;
+
+// Arrivals KPIs
+const kpiRow=el('arrivals-kpi-row');
+[MARKET_DATA.nzArrivals.kpis.totalArrivals,MARKET_DATA.nzArrivals.kpis.holidayArrivals].forEach(k=>{
+  const pd=k.changePY.startsWith('+')?'up':'down',sd=k.change2019.startsWith('+')?'up':'down';
+  kpiRow.innerHTML+=`<div class="kpi-card"><div class="kpi-value">${k.value}</div><div class="kpi-label">${k.label}</div><div class="kpi-changes"><span class="kpi-change ${pd}">${k.changePY} <span class="change-label">vs prior year</span></span><span class="kpi-change ${sd}">${k.change2019} <span class="change-label">vs 2019</span></span></div></div>`;
+});
+
+// Monthly arrivals chart
+let arrivalsChart;
+function buildArrivalsChart(mode){
+  const d=mode==='total'?MARKET_DATA.nzArrivals.monthlyTotal:MARKET_DATA.nzArrivals.monthlyHoliday;
+  if(arrivalsChart)arrivalsChart.destroy();
+  arrivalsChart=new Chart(el('chart-arrivals').getContext('2d'),{type:'bar',data:{labels:d.labels,datasets:[{label:'2019',data:d['2019'],backgroundColor:'rgba(168,200,216,.5)',borderColor:'#A8C8D8',borderWidth:1.5,borderRadius:3},{label:'2024',data:d['2024'],backgroundColor:'rgba(60,116,141,.65)',borderColor:'#3C748D',borderWidth:1.5,borderRadius:3},{label:'2025',data:d['2025'],backgroundColor:'#004157',borderColor:'#004157',borderWidth:1.5,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:9,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${fmt(c.raw)}`}}},scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:11},callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v}}}}});
+}
+buildArrivalsChart('total');
+function setArrivalsMode(mode){
+  document.querySelectorAll('#nz-arrivals .toggle-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&mode==='total')||(i===1&&mode==='holiday')));
+  buildArrivalsChart(mode);
+}
+
+// Purpose donut
+new Chart(el('chart-purpose').getContext('2d'),{type:'doughnut',plugins:[ChartDataLabels],data:{labels:MARKET_DATA.nzArrivals.purposeOfVisit.map(p=>p.label),datasets:[{data:MARKET_DATA.nzArrivals.purposeOfVisit.map(p=>p.pct),backgroundColor:MARKET_DATA.nzArrivals.purposeOfVisit.map(p=>p.color),borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',layout:{padding:28},plugins:{legend:{display:false},tooltip:{enabled:false},datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>=4,formatter:(val,ctx)=>ctx.chart.data.labels[ctx.dataIndex]+'\n'+val+'%',color:'#2B2B2B',font:{size:10,weight:'600',family:"'Inter',sans-serif"},textAlign:'center',anchor:'end',align:'end',offset:4,padding:{top:2,bottom:2}}}}});
+
+// Age bars
+MARKET_DATA.nzArrivals.ageBreakdown.forEach(a=>{
+  el('age-bars').innerHTML+=`<div class="age-row"><div class="age-label">${a.label}</div><div class="age-bar-wrap"><div class="age-bar-fill" style="width:${(a.pct/30*100).toFixed(1)}%"><span>${a.pct}%</span></div></div></div>`;
+});
+
+// Seasonality
+const sIcons={Summer:`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`,Autumn:`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.1 20.8c1.3-1.6 2.7-3.1 4.9-4.8"/><path d="M3.82 22c2-4.8 6-8.9 13.18-12"/></svg>`,Winter:`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><polyline points="9,5 12,2 15,5"/><polyline points="19,9 22,12 19,15"/><polyline points="15,19 12,22 9,19"/><polyline points="5,15 2,12 5,9"/></svg>`,Spring:`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 8 4 4 4c0 4 3 8 8 8z"/><path d="M12 12C12 7 16 4 20 4c0 4-3 8-8 8z"/></svg>`};
+MARKET_DATA.nzArrivals.seasonality.forEach(s=>{
+  el('seasonality-grid').innerHTML+=`<div class="season-card"><div class="season-icon-wrap">${sIcons[s.season]}</div><div class="season-name">${s.season}</div><div class="season-pct">${s.total}</div><div class="season-period">of total arrivals (${s.period})</div><span class="season-change kpi-change ${s.up?'up':'down'}">${s.changePct} YoY</span></div>`;
+});
+
+// Trip spend KPIs
+const sp=MARKET_DATA.nzTrip.spend;
+el('spend-kpis').innerHTML=[sp.total,sp.avgTrip,sp.avgDay,sp.avgHolidayTrip].map(k=>`<div class="spend-kpi"><div class="spend-kpi-value">${k.value}</div><div class="spend-kpi-label">${k.label}</div></div>`).join('');
+
+// Spend split
+new Chart(el('chart-spend').getContext('2d'),{type:'bar',data:{labels:sp.spendSplit.map(s=>s.label),datasets:[{data:sp.spendSplit.map(s=>s.value),backgroundColor:sp.spendSplit.map(s=>s.color),borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` $${fmt(c.raw)}M`}}},scales:{x:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:11},callback:v=>'$'+v+'M'}},y:{grid:{display:false},ticks:{font:{size:12,weight:'600'}}}}}});
+
+// LOS
+const losTotal=MARKET_DATA.nzTrip.los.total;
+const losHol=MARKET_DATA.nzTrip.los.holiday;
+el('los-card-total').innerHTML=`<div class="los-value">${losTotal.value}</div><div class="los-unit">${losTotal.label}</div><div class="los-sub">${losTotal.subLabel}</div>`;
+el('los-card-holiday').innerHTML=`<div class="los-value">${losHol.value}</div><div class="los-unit">${losHol.label}</div><div class="los-sub">${losHol.subLabel}</div>`;
+
+// Regions donut
+new Chart(el('chart-regions').getContext('2d'),{type:'doughnut',plugins:[ChartDataLabels],data:{labels:MARKET_DATA.nzTrip.regionsVisited.map(r=>r.label),datasets:[{data:MARKET_DATA.nzTrip.regionsVisited.map(r=>r.pct),backgroundColor:MARKET_DATA.nzTrip.regionsVisited.map(r=>r.color),borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',layout:{padding:30},plugins:{legend:{display:false},tooltip:{enabled:false},datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>=6,formatter:(val,ctx)=>ctx.chart.data.labels[ctx.dataIndex]+'\n'+val+'%',color:'#2B2B2B',font:{size:10,weight:'600',family:"'Inter',sans-serif"},textAlign:'center',anchor:'end',align:'end',offset:4,padding:{top:2,bottom:2}}}}});
+
+// QL popouts
+el('four-plus-pct').textContent=MARKET_DATA.nzTrip.visitedFourPlus;
+const qlv=MARKET_DATA.nzTrip.qlVisitation;
+el('ql-popouts').innerHTML=`<div class="ql-pop"><div class="ql-pop-value">${qlv.queenstownTotal}</div><div class="ql-pop-dest">Queenstown</div><div class="ql-pop-type">All visitors</div></div><div class="ql-pop holiday"><div class="ql-pop-value">${qlv.queenstownHol}</div><div class="ql-pop-dest">Queenstown</div><div class="ql-pop-type">Holiday visitors</div></div><div class="ql-pop"><div class="ql-pop-value">${qlv.wanakaTotal}</div><div class="ql-pop-dest">Wānaka</div><div class="ql-pop-type">All visitors</div></div><div class="ql-pop holiday"><div class="ql-pop-value">${qlv.wanakaHol}</div><div class="ql-pop-dest">Wānaka</div><div class="ql-pop-type">Holiday visitors</div></div>`;
+
+// NZ motivators
+const nzMI=[`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 8 5-5 1 10H6L7 8l3 4L8 3z"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4m0 4h.01"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 10H3z"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8 9H2l5 4-2 7 7-4 7 4-2-7 5-4h-6L12 2z"/></svg>`];
+MARKET_DATA.nzTrip.motivators.forEach((m,i)=>{
+  el('motivator-list').innerHTML+=`<div class="motivator-item"><div class="motivator-icon">${nzMI[i]}</div><div class="motivator-text"><div class="motivator-label">${m.label}</div><div class="motivator-bar-wrap"><div class="motivator-bar-bg"><div class="motivator-bar-fill" style="width:${m.pct}%"></div></div><div class="motivator-pct">${m.pct}%</div></div></div></div>`;
+});
+
+// QL Expenditure
+el('expend-narrative').textContent=MARKET_DATA.qlExpenditure.narrative;
+const ek=MARKET_DATA.qlExpenditure.kpis;
+el('expend-hero').innerHTML=`<div class="expend-kpi"><div class="expend-kpi-label">${ek.total.label}</div><div class="expend-kpi-value">${ek.total.value}</div><div class="expend-kpi-change">${ek.total.changePY}</div></div><div class="expend-kpi secondary"><div class="expend-kpi-label">${ek.share.label}</div><div class="expend-kpi-value">${ek.share.value}</div><div class="expend-kpi-change">${ek.share.changePY}</div></div>`;
+new Chart(el('chart-expend').getContext('2d'),{type:'bar',data:{labels:MARKET_DATA.qlExpenditure.monthly.labels,datasets:[{label:'2023',data:MARKET_DATA.qlExpenditure.monthly['2023'],backgroundColor:'rgba(168,200,216,.55)',borderColor:'#A8C8D8',borderWidth:1.5,borderRadius:3},{label:'2024',data:MARKET_DATA.qlExpenditure.monthly['2024'],backgroundColor:'rgba(60,116,141,.65)',borderColor:'#3C748D',borderWidth:1.5,borderRadius:3},{label:'2025',data:MARKET_DATA.qlExpenditure.monthly['2025'],backgroundColor:'#004157',borderColor:'#004157',borderWidth:1.5,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:9,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: $${c.raw}M`}}},scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:11},callback:v=>'$'+v+'M'}}}}});
+
+// Visitor Experience
+const ve=MARKET_DATA.visitorExperience;
+el('exp-source').textContent=ve.sourceNote;
+el('exp-kpis').innerHTML=[{...ve.kpis.nps,cls:''},{...ve.kpis.satisfaction,cls:'mid'},{...ve.kpis.returnIntent,cls:'lite'}].map(k=>`<div class="exp-kpi-card ${k.cls}"><div class="kpi-value">${k.value}</div><div class="kpi-label">${k.label}</div></div>`).join('');
+
+const qlMI=[`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 8 5-5 1 10H6L7 8l3 4L8 3z"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 10H3z"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4m0 4h.01"/></svg>`,`<svg viewBox="0 0 24 24" fill="none" stroke="#3C748D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`];
+ve.motivations.forEach((m,i)=>{
+  el('motivation-list').innerHTML+=`<div class="motivation-item"><div class="motivation-icon">${qlMI[i]||qlMI[0]}</div><div class="motivation-text"><div class="motivation-label">${m.label}</div><div class="motivation-bar-wrap"><div class="motivation-bar-bg"><div class="motivation-bar-fill" style="width:${m.pct}%"></div></div><div class="motivation-pct">${m.pct}%</div></div></div></div>`;
+});
+
+// Activities
+const act=MARKET_DATA.activities;
+el('act-avg-card').innerHTML=`<div class="act-stat-num">${act.avgActivities}</div><div><div class="act-stat-sub">Average activities<br>undertaken per visitor</div></div>`;
+new Chart(el('chart-activities').getContext('2d'),{type:'bar',data:{labels:act.list.map(a=>a.label),datasets:[{data:act.list.map(a=>a.pct),backgroundColor:act.list.map((_,i)=>i<3?'#004157':i<7?'#3C748D':'rgba(107,158,181,.7)'),borderRadius:3,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},scales:{x:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:11},callback:v=>v+'%'},max:100},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+
+// Locations
+const loc=MARKET_DATA.locationsVisited;
+el('loc-avg-card').innerHTML=`<div class="act-stat-num">${loc.avgLocations}</div><div><div class="act-stat-sub">Average locations<br>visited per visitor</div></div>`;
+new Chart(el('chart-locations').getContext('2d'),{type:'bar',data:{labels:loc.list.map(l=>l.label),datasets:[{data:loc.list.map(l=>l.pct),backgroundColor:loc.list.map((_,i)=>i===0?'#004157':i<3?'#3C748D':'rgba(107,158,181,.7)'),borderRadius:3,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},scales:{x:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:11},callback:v=>v+'%'},max:100},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+
+// Sustainable Travel
+const st=MARKET_DATA.sustainableTravel;
+el('sust-source').textContent=st.sourceNote;
+new Chart(el('chart-locals').getContext('2d'),{type:'doughnut',plugins:[ChartDataLabels],data:{labels:st.interactionWithLocals.map(l=>l.label),datasets:[{data:st.interactionWithLocals.map(l=>l.pct),backgroundColor:st.interactionWithLocals.map(l=>l.color),borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',layout:{padding:30},plugins:{legend:{display:false},tooltip:{enabled:false},datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>=3,formatter:(val,ctx)=>ctx.chart.data.labels[ctx.dataIndex]+'\n'+val+'%',color:'#2B2B2B',font:{size:10,weight:'600',family:"'Inter',sans-serif"},textAlign:'center',anchor:'end',align:'end',offset:4,padding:{top:2,bottom:2}}}}});
+st.behaviours.forEach(b=>{el('behav-bars').innerHTML+=`<div class="behav-row"><div class="behav-label">${b.label}</div><div class="behav-bar-wrap"><div class="behav-bar-bg"><div class="behav-bar-fill" style="width:${b.pct}%"></div></div><div class="behav-pct">${b.pct}%</div></div></div>`;});
+st.attitudes.forEach(a=>{el('attitude-list').innerHTML+=`<div class="attitude-item"><div class="attitude-label">${a.label}</div><div class="attitude-row-wrap"><div class="attitude-bar-bg"><div class="attitude-bar-fill" style="width:${a.combined}%"></div></div><div class="attitude-total-pct">${a.combined}%</div></div></div>`;});
+
+// Market Context
+const mc=MARKET_DATA.marketContext;
+el('context-placeholder-note').textContent=mc.placeholderNote;
+mc.pillars.forEach(p=>{el('context-grid').innerHTML+=`<div class="context-card placeholder"><div class="context-card-title">${p.title}</div><div class="context-card-text">${p.text}</div></div>`;});
+
+// About
+const ab=MARKET_DATA.about;
+el('about-text').innerHTML=`<p>${ab.body}</p><p>${ab.body2}</p><p>${ab.body3}</p>`;
+[{key:'priority',label:'Priority Focus Markets',cls:''},{key:'secondary',label:'Secondary Focus Markets',cls:'secondary'},{key:'additional',label:'Additional Market Presence',cls:'additional'}].forEach(t=>{
+  el('focus-markets').innerHTML+=`<div class="market-tier"><div class="tier-label">${t.label}</div><ul class="tier-list ${t.cls}">${ab.focusMarkets[t.key].map(m=>`<li>${m}</li>`).join('')}</ul></div>`;
+});
+
+// Sources
+MARKET_DATA.sources.forEach(s=>{el('sources-grid').innerHTML+=`<div><div class="source-group-title">${s.section}</div><ul class="source-list">${s.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`;});
+</script>
+</body>
+</html>
